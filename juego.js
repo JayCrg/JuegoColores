@@ -30,12 +30,14 @@ function setColors() {
         divs[i].addEventListener("click", (e) => {
             if (e.target.style.backgroundColor == `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`){
                 document.getElementById("resultado").innerHTML = "Enhorabueno, has ganado";
+                document.getElementById("resultado").style.backgroundColor = "green";
                 e.target.style.opacity = '100%';
         }
             else {
                 e.target.style.opacity = '0%';
                 e.target.style.transition = "0.5s";
                 document.getElementById("resultado").innerHTML = "Sigue intentando";
+                document.getElementById("resultado").style.backgroundColor = "red";
             }
         })
     }
