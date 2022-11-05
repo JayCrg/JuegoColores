@@ -7,12 +7,13 @@ function getColors() {
     let r = randomInt(256);
     let g = randomInt(256);
     let b = randomInt(256);
-    let rgb = [r, g, b];
+    let rgb = [r, g, b];    
     return rgb;
 }
 
 function setColors() {
-    let colorArray = [];
+    document.getElementById("resultado").style.backgroundColor = "RGB(45, 142, 153)";
+    let colorArray = [];               
     divs = document.getElementsByClassName('color')
     for (i = 0; i < divs.length; i++) {
         color = getColors();
@@ -27,11 +28,13 @@ function setColors() {
     // Comprobamos que el valor del atributo style del div seleccionado es igual al valor rgb que hemos guardado
     document.getElementById("resultado").innerHTML = "Esperando a que seleccione color";
     for (i = 0; i < divs.length; i++) {
+        divs[i].removeAttribute("id");
         divs[i].addEventListener("click", (e) => {
             if (e.target.style.backgroundColor == `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`){
                 document.getElementById("resultado").innerHTML = "Enhorabueno, has ganado";
                 document.getElementById("resultado").style.backgroundColor = "green";
                 e.target.style.opacity = '100%';
+                e.target.setAttribute("id","ganador");
         }
             else {
                 e.target.style.opacity = '0%';
